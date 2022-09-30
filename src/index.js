@@ -1,7 +1,13 @@
-//Importar los archivos que queremos utilizar para que pueda funcionar el actual archivo 
-import {saludar} from './js/componentes.js';
+import { buscarHeroe } from './js/callbacks';
 import './styles.css';
 
-const nombre = 'laura';
+const heroeId = 'iron';
 
-saludar(nombre);
+//*Callback = Funcion que es enviada por un argumento
+buscarHeroe(heroeId, (err, heroe)=>{
+    if(err){
+        console.error(err);
+    }else{
+        console.info(heroe);
+    }
+});
