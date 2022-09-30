@@ -14,6 +14,8 @@ const heroes = {
 }
 
 //* Primero se ejecuta la funcion buscarHeroe y luego el callback de forma secuencial
+//* Cuando se tienen muchos callbacks anidados se le conoce como CALLBACK HELL, ya que
+//* Esto es llamado asi porque es insostenible el codigo con tantos callbacks
 export const buscarHeroe = (heroeId, callback) =>{
     const heroe = heroes[heroeId];
 
