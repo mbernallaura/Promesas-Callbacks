@@ -10,13 +10,13 @@ const heroeId2 = 'iron';
 //! Callback = Funcion que es enviada por un argumento y son sincronas, es decir que no sigue el codigo
 //! hasta que se resuleva el callback
 // buscarHeroe(heroeId1, (err, heroe1)=>{
-//     // if(err){
-//     //     console.error(err);
-//     // }else{
-//     //     console.info(heroe);
-//     // }
+    // if(err){
+    //     console.error(err);
+    // }else{
+    //     console.info(heroe);
+    // }
 
-//     //Manera corta de realizar lo anterior
+//     Manera corta de realizar lo anterior
 //     if(err){return console.error(err);}
 
 //     buscarHeroe(heroeId2, (err, heroe2) =>{
@@ -33,8 +33,24 @@ const heroeId2 = 'iron';
 //* .finally = Se utiliza para hacer limpiezas y se ejecuta despues del ".then" o el ".catch"
 //* .then = Cuando todo sucede correctamente
 //? .then = Recibe un callback de agumento
-buscarHeroe( heroeId1 ).then( heroe => {
-    console.log(`Enviando a ${heroe.nombre} a la mision`);
+
+// buscarHeroe( heroeId1 ).then( heroe1 => {
+//     console.log(`Enviando a ${heroe.nombre} a la mision`);
+
+//     buscarHeroe( heroeId2 ).then( heroe2 =>{
+//         console.log(`Enviando a ${heroe1.nombre} y ${heroe2.nombre} a la mision`);
+//     })
+// });
+
+//Para Resumir lo anterior:
+//* El .then() como argumento recibe un arreglo con las respuestas de los objetos del .all() 
+//! Los arreglos se pueden desestructurar
+//* Para este ejercicio se hace esra desestructuracion del arreglo para poder tener las respuestas
+//* en diferentes variables
+
+Promise.all([buscarHeroe(heroeId1), buscarHeroe(heroeId2)])
+.then( ([heroe1, heroe2]) =>{
+    console.log(`Enviando a ${heroe1.nombre} y ${heroe2.nombre} a la mision`);
 });
 
 console.log('Fin del programa');
