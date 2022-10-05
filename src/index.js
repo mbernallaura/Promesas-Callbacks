@@ -1,6 +1,7 @@
 // import {promesaLenta, promesaMedia, promesaRapida} from './js/promesas';
-import { buscarHeroe, buscarHeroeAsync } from './js/promesas';
+//import { buscarHeroe, buscarHeroeAsync } from './js/promesas';
 import {} from './styles.css'
+import { obtenerHeroesArr } from './js/await'
 
 // promesaLenta.then( console.log );
 // promesaMedia.then( console.log );
@@ -13,9 +14,11 @@ import {} from './styles.css'
 // Promise.race([promesaLenta, promesaMedia, promesaRapida])
 //         .then(console.log);
 
-buscarHeroe('capi2')
-        .then( (heroe) => console.log(heroe) )
-        .catch(console.warn);
-buscarHeroeAsync('iron2')
-        .then( (heroe) => console.log(heroe) )
-        .catch( console.warn );
+// buscarHeroe('capi2')
+//         .then( (heroe) => console.log(heroe) )
+//         .catch(console.warn);
+// buscarHeroeAsync('iron2')
+//         .then( (heroe) => console.log(heroe) )
+//         .catch( console.warn );
+
+obtenerHeroesArr().then(console.table);
