@@ -1,7 +1,7 @@
 // import {promesaLenta, promesaMedia, promesaRapida} from './js/promesas';
 //import { buscarHeroe, buscarHeroeAsync } from './js/promesas';
 import {} from './styles.css'
-import { obtenerHeroesArr } from './js/await'
+import { obtenerHeroesArr, obtenerHeroesArr2 } from './js/await'
 
 // promesaLenta.then( console.log );
 // promesaMedia.then( console.log );
@@ -22,3 +22,5 @@ import { obtenerHeroesArr } from './js/await'
 //         .catch( console.warn );
 
 obtenerHeroesArr().then(console.table);
+
+obtenerHeroesArr2().then(console.table);
