@@ -1,4 +1,6 @@
-import {promesaLenta, promesaMedia, promesaRapida} from './js/promesas';
+// import {promesaLenta, promesaMedia, promesaRapida} from './js/promesas';
+import { buscarHeroe, buscarHeroeAsync } from './js/promesas';
+import {} from './styles.css'
 
 // promesaLenta.then( console.log );
 // promesaMedia.then( console.log );
@@ -8,5 +10,12 @@ import {promesaLenta, promesaMedia, promesaRapida} from './js/promesas';
 //*Se resuelva mas rapido
 //!No importa si alguna da error antes que la promesa mas rapida, lo obvia y vota la respuesta
 //!Si la promesa mas rapida tiene un error, eso es lo que nos mostrara
-Promise.race([promesaLenta, promesaMedia, promesaRapida])
-        .then(console.log);
+// Promise.race([promesaLenta, promesaMedia, promesaRapida])
+//         .then(console.log);
+
+buscarHeroe('capi2')
+        .then( (heroe) => console.log(heroe) )
+        .catch(console.warn);
+buscarHeroeAsync('iron2')
+        .then( (heroe) => console.log(heroe) )
+        .catch( console.warn );

@@ -30,6 +30,23 @@ export const buscarHeroe = ( heroeId ) =>{
     });
 }
 
+//!Forma de hacer lo anterior utilizando Async
+//?Cuando hay la palabra async en una funcion, esto por defecto ya devuelve una promesa y no 
+//?Se tiene que hacer el return de la new Promise
+export const buscarHeroeAsync = async( heroeId ) =>{
+    const heroe = heroes[heroeId];
+
+    if(heroe){
+        //*En la funcion con async, se pone return y lo que se resuelve, es decir lo que vienen 
+        //*siendo el resolve en una funcion que no tiene el async
+        return heroe;
+    }else{
+        //!Cuando se sabe que error se esta manejando solo se coloca THROW
+        //!Sin embargo cuando no se sabe cual es el error, se coloca throw Error( elError )
+        throw `No existe un heroe con el id ${heroeId}`;
+    }
+}
+
 const promesaLenta = new Promise((resolve, reject) =>{
     setTimeout(() => resolve('Promesa Lenta'), 2000);
 });
