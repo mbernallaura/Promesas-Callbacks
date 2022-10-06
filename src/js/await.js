@@ -1,6 +1,7 @@
-import { buscarHeroeAsync } from './promesas';
+import { buscarHeroe2, buscarHeroeAsync } from './promesas';
 
 const heroesIds = ['capi','iron','spider'];
+const heroesPromesas = heroesIds.map(id => buscarHeroe2(id)); //Arreglo de 3 promesas
 
 //!Para utilizar el await su condicion es que debe estar dentro de una funcion async
 export const obtenerHeroesArr = async() =>{
@@ -42,3 +43,28 @@ export const obtenerHeroeAwait = async( id ) =>{
 
 }
 
+export const heroesCiclo = async() =>{
+    console.time('HeroesCiclo');
+    
+    // const heroes = await Promise.all(heroesPromesas);
+    // heroes.forEach( console.log )
+
+    //Lo mismo que lo anterior
+    for await(const heroe of heroesPromesas){
+        console.log(heroe);
+    }
+
+    //!El await se puede utilizar tambien dentro de un console.log
+    //heroesPromesas.forEach(async(p) => console.log(await p))
+
+    console.timeEnd('HeroesCiclo');
+}
+
+export const heroeIfAwait = async( id ) =>{
+    //!El await sirve para transformar una promesa a el resultado que se espera
+    if((await buscarHeroeAsync(id)).nombre === 'Ironman'){
+        console.log('El mejor de todos');
+    }else{
+        console.log('Nel');
+    }
+}
